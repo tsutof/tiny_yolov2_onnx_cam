@@ -3,6 +3,10 @@ Tiny YOLO v2 Inference Application with NVIDIA TensorRT
 
 ## Prerequisites
 
+- NVIDIA Jetson Nano Developer Kit
+- USB Web Camera or Raspberry Pi Camera V2
+- NVIDIA JetPack 4.2.1 or later
+
 ## Installation
 
 ## Usage
