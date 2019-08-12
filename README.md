@@ -1,6 +1,10 @@
 # tiny_yolov2_onnx_cam
 Tiny YOLO v2 Inference Application with NVIDIA TensorRT
 
+## What does this application do?
+
+This application downloads the tiny YOLO v2 model from [Open Neural Network eXchange (ONNX) Model Zoo](https://github.com/onnx/models) and converts it to NVIDIA TensorRT plan, then starts the object detection for camera captured image.
+
 ## Prerequisites
 
 - NVIDIA Jetson Nano Developer Kit
@@ -8,6 +12,20 @@ Tiny YOLO v2 Inference Application with NVIDIA TensorRT
 - NVIDIA JetPack 4.2.1 or later
 
 ## Installation
+
+```
+$ sudo apt-get update
+
+$ sudo apt-get install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
+
+$ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
+
+$ cd tiny_yolov2_onnx_cam
+
+$ export PATH=$PATH:/usr/local/cuda/bin
+
+$ python3 -m pip install -r requirements.txt
+```
 
 ## Usage
 
