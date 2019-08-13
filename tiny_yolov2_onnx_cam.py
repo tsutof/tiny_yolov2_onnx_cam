@@ -166,7 +166,6 @@ def main():
         frame_count = 0
 
         while True:
-            # フレームの開始時刻を記録する
             # Get the frame start time for FPS calculation
             start_time = time.time()
 
