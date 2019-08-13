@@ -17,16 +17,14 @@ import common
 import wget
 import tarfile
 import time
+import argparse
 
 FPS = 30
-#ORG_RES = (1080, 1080)
-ORG_RES = (720, 720)
 GST_STR_CSI = 'nvarguscamerasrc \
     ! video/x-raw(memory:NVMM), width=3280, height=2464, format=(string)NV12, framerate=(fraction)%d/1 \
     ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx \
     ! videoconvert \
-    ! appsink' \
-    % (FPS, ORG_RES[0], ORG_RES[1])
+    ! appsink'
 WINDOW_NAME = 'Tiny YOLO v2'
 INPUT_RES = (416, 416)
 MODEL_URL = 'https://onnxzoo.blob.core.windows.net/models/opset_8/tiny_yolov2/tiny_yolov2.tar.gz'
@@ -36,10 +34,11 @@ LABEL_URL = 'https://raw.githubusercontent.com/pjreddie/darknet/master/data/voc.
 def draw_bboxes(image, bboxes, confidences, categories, all_categories, message=None):
     for box, score, category in zip(bboxes, confidences, categories):
         x_coord, y_coord, width, height = box
+        img_height, img_width, _ = image.shape
         left = max(0, np.floor(x_coord + 0.5).astype(int))
         top = max(0, np.floor(y_coord + 0.5).astype(int))
-        right = min(ORG_RES[0], np.floor(x_coord + width + 0.5).astype(int))
-        bottom = min(ORG_RES[1], np.floor(y_coord + height + 0.5).astype(int))
+        right = min(img_width, np.floor(x_coord + width + 0.5).astype(int))
+        bottom = min(img_height, np.floor(y_coord + height + 0.5).astype(int))
         cv2.rectangle(image, \
             (left, top), (right, bottom), (0, 0, 255), 3)
         info = '{0} {1:.2f}'.format(all_categories[category], score)
@@ -102,28 +101,36 @@ def download_model():
 
 # Main function
 def main():
-    # Obtain the camera number form the command line
-    # Negative number means MIPI-CSI camera (e.g. Raspberry-Pi camera v2).
-    args = sys.argv
-    cam = 0
-    if len(args) <= 1:
-        cam = 0
-    elif (int(args[1]) < 0):
-        cam = -1
-    else:
-        cam = int(args[1])
+    # Parse the command line parameters
+    parser = argparse.ArgumentParser(description='Tiny YOLO v2 Object Detector')
+    parser.add_argument('--camera', '-c', \
+        type=int, default=0, metavar='CAMERA_NUM', \
+        help='Camera number, use any negative integer for MIPI-CSI camera')
+    parser.add_argument('--width', \
+        type=int, default=720, metavar='WIDTH', \
+        help='Capture width')
+    parser.add_argument('--height', \
+        type=int, default=720, metavar='HEIGHT', \
+        help='Capture height')
+    parser.add_argument('--objth', \
+        type=float, default=0.6, metavar='OBJ_THRESH', \
+        help='Threshold of object confidence score (between 0 and 1)')
+    parser.add_argument('--nmsth', \
+        type=float, default=0.3, metavar='NMS_THRESH', \
+        help='Threshold of NMS algorithm (between 0 and 1)')
+    args = parser.parse_args()
 
-    cap = None
-    if cam < 0:
+    if args.camera < 0:
         # Open the MIPI-CSI camera
-        cap = cv2.VideoCapture(GST_STR_CSI, cv2.CAP_GSTREAMER)
+        gst_cmd = GST_STR_CSI % (args.width, args.height)
+        cap = cv2.VideoCapture(gst_cmd, cv2.CAP_GSTREAMER)
     else:
         # Open the V4L2 camera
-        cap = cv2.VideoCapture(cam)
+        cap = cv2.VideoCapture(args.camera)
         # Set the capture parameters
         cap.set(cv2.CAP_PROP_FPS, FPS)
-        cap.set(cv2.CAP_PROP_FRAME_WIDTH, ORG_RES[0])
-        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, ORG_RES[1])
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, args.width)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.height)
 
     # Download the label data
     categories = download_label()
@@ -135,9 +142,9 @@ def main():
         # YOLO anchors
         "yolo_anchors": [(1.08, 1.19), (3.42, 4.41), (6.63, 11.38), (9.42, 5.11), (16.62, 10.52)],
         # Threshold of object confidence score (between 0 and 1)
-        "obj_threshold": 0.6,
+        "obj_threshold": args.objth,
         # Threshold of NMS algorithm (between 0 and 1)
-        "nms_threshold": 0.3,
+        "nms_threshold": args.nmsth,
         # Input image resolution
         "yolo_input_resolution": INPUT_RES,
         # Number of object classes
@@ -190,7 +197,7 @@ def main():
 
             # Calculates the bounding boxes
             boxes, classes, scores \
-                = postprocessor.process(trt_outputs, ORG_RES)
+                = postprocessor.process(trt_outputs, (args.width, args.height))
 
             # Draw the bounding boxes
             if boxes is not None and frame_count > 10 :
