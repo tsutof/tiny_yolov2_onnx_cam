@@ -41,9 +41,9 @@ $ sudo jetson_clocks
 The following command starts this application.
 
 ```
-$ python3  tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--width WIDTH]
-                                 [--height HEIGHT] [--objth OBJ_THRESH]
-                                 [--nmsth NMS_THRESH]
+$ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--width WIDTH]
+                                  [--height HEIGHT] [--objth OBJ_THRESH]
+                                  [--nmsth NMS_THRESH]
 
 optional arguments:
   -h, --help            show this help message and exit
