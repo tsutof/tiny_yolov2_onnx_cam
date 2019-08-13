@@ -1,6 +1,6 @@
 # tiny_yolov2_onnx_cam
 Tiny YOLO v2 Inference Application with NVIDIA TensorRT
-![Screenshot](https://github.com/tsutof/tiny_yolov2_onnx_cam/blob/master/screenshot.png)
+<img src="./screenshot.png" alt="Screenshot" title="Screenshot" width="540" height="540">
 
 ## What does this application do?
 
