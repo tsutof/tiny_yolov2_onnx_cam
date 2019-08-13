@@ -30,6 +30,31 @@ $ python3 -m pip install -r requirements.txt
 
 ## Usage
 
+First, clock up your Jetson.
+
+```
+$ sudo nvpmodel -m 0
+$ sudo jetson_clocks
+```
+
+The following command starts this application.
+
+```
+$ python3 tiny_yolov2_onnx_cam.py [camera_number]
+```
+
+For Raspberry Pi camera v2, use any negative number as the camera number.
+
+```
+$ python3 tiny_yolov2_onnx_cam.py -1 
+```
+
+For USB Web camera, if you camera is detected as /dev/video1, use 1 as the camera number.
+
+```
+$ python3 tiny_yolov2_onnx_cam.py 1
+```
+
 ## Third Party License
 
 This program is using open source software which is licensed by the following conditions:
