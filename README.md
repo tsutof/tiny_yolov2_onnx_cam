@@ -45,8 +45,6 @@ python3  tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--width WIDTH]
                                  [--height HEIGHT] [--objth OBJ_THRESH]
                                  [--nmsth NMS_THRESH]
 
-Tiny YOLO v2 Object Detector
-
 optional arguments:
   -h, --help            show this help message and exit
   --camera CAMERA_NUM, -c CAMERA_NUM
