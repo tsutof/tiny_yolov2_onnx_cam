@@ -58,13 +58,13 @@ optional arguments:
 For Raspberry Pi camera v2, use any negative number as the camera number.
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py camera=-1 
+$ python3 tiny_yolov2_onnx_cam.py --camera -1 
 ```
 
 For USB Web camera, if you camera is detected as /dev/video1, use 1 as the camera number.
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py camera=1
+$ python3 tiny_yolov2_onnx_cam.py --camera 1
 ```
 
 ## Third Party License
