@@ -21,7 +21,7 @@ import argparse
 
 FPS = 30
 GST_STR_CSI = 'nvarguscamerasrc \
-    ! video/x-raw(memory:NVMM), width=3280, height=2464, format=(string)NV12, framerate=(fraction)%d/1 \
+    ! video/x-raw(memory:NVMM), width=(int)%d, height=(int)%d, format=(string)NV12, framerate=(fraction)%d/1 \
     ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx \
     ! videoconvert \
     ! appsink'
@@ -107,7 +107,7 @@ def main():
         type=int, default=0, metavar='CAMERA_NUM', \
         help='Camera number, use any negative integer for MIPI-CSI camera')
     parser.add_argument('--width', \
-        type=int, default=720, metavar='WIDTH', \
+        type=int, default=1280, metavar='WIDTH', \
         help='Capture width')
     parser.add_argument('--height', \
         type=int, default=720, metavar='HEIGHT', \
@@ -122,7 +122,8 @@ def main():
 
     if args.camera < 0:
         # Open the MIPI-CSI camera
-        gst_cmd = GST_STR_CSI % (FPS, args.width, args.height)
+        gst_cmd = GST_STR_CSI \
+            % (args.width, args.height, FPS, args.width, args.height)
         cap = cv2.VideoCapture(gst_cmd, cv2.CAP_GSTREAMER)
     else:
         # Open the V4L2 camera
