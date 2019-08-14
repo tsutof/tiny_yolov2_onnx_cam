@@ -67,7 +67,7 @@ For USB Web camera, if you camera is detected as /dev/video1, use 1 as the camer
 $ python3 tiny_yolov2_onnx_cam.py --camera 1
 ```
 
-## Third Party License
+## Third Party License 
 
 This program is using open source software which is licensed with the following conditions:
 
