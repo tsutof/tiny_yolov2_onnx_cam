@@ -5,7 +5,7 @@
 
 ## What does this application do?
 
-This application downloads the tiny YOLO v2 model from [Open Neural Network eXchange (ONNX) Model Zoo](https://github.com/onnx/models) and converts it to NVIDIA TensorRT plan, then starts the object detection for camera captured image.
+This application downloads the tiny YOLO v2 model from [Open Neural Network eXchange (ONNX) Model Zoo](https://github.com/onnx/models) and converts it to NVIDIA TensorRT plan, then starts the object detection for camera captured image. 
 
 ## Prerequisites
 
