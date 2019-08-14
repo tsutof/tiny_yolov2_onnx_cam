@@ -122,7 +122,7 @@ def main():
 
     if args.camera < 0:
         # Open the MIPI-CSI camera
-        gst_cmd = GST_STR_CSI % (args.width, args.height)
+        gst_cmd = GST_STR_CSI % (FPS, args.width, args.height)
         cap = cv2.VideoCapture(gst_cmd, cv2.CAP_GSTREAMER)
     else:
         # Open the V4L2 camera
@@ -131,6 +131,11 @@ def main():
         cap.set(cv2.CAP_PROP_FPS, FPS)
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, args.width)
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.height)
+
+    # Get the actual frame size
+    act_width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+    act_height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+    frame_info = 'Frame:%dx%d' %  (act_width, act_height)
 
     # Download the label data
     categories = download_label()
@@ -197,12 +202,15 @@ def main():
 
             # Calculates the bounding boxes
             boxes, classes, scores \
-                = postprocessor.process(trt_outputs, (args.width, args.height))
+                = postprocessor.process(trt_outputs, (act_width, act_height))
 
             # Draw the bounding boxes
-            if boxes is not None and frame_count > 10 :
-                fps_info = '{0} {1:.2f}'.format('FPS:', fps)
-                draw_bboxes(img, boxes, scores, classes, categories, fps_info)
+            if boxes is not None:
+                draw_bboxes(img, boxes, scores, classes, categories)
+            if frame_count > 10:
+                fps_info = '{0}{1:.2f}'.format('FPS:', fps)
+                msg = '%s %s' % (frame_info, fps_info)
+                draw_message(img, msg)
 
             # Show the results
             cv2.imshow(WINDOW_NAME, img)
