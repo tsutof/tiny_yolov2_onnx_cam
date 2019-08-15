@@ -32,6 +32,7 @@ $ python3 -m pip install -r requirements.txt
 ## Usage
 
 First, clock up your Jetson.
+Only the nvpmodel is not enough, the jetson_clocks command is also needed. Without the jetson_clocks, "select timeout" error happens at the frame capture.
 
 ```
 $ sudo nvpmodel -m 0
