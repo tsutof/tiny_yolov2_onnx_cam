@@ -9,9 +9,9 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
 
 ## 前提とする環境
 
-- NVIDIA Jetson Nano Developer Kit
-- USB Web Camera or Raspberry Pi Camera V2
-- NVIDIA JetPack 4.2.1 or later
+- NVIDIA Jetson Nano 開発者キット
+- USB ウェブカメラ または Raspberry Pi Camera V2
+- NVIDIA JetPack 4.2.1 以降
 
 ## インストール方法
 
