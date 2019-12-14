@@ -1,6 +1,8 @@
 # tiny_yolov2_onnx_cam
 **NVIDIA TensorRT で高速化された Tiny YOLO v2 推論アプリケーション**
 
+*Read this in [English](README.md)*
+
 <img src="./screenshot.png" alt="Screenshot" title="Screenshot" width="640" height="360">
 
 ## このアプリケーションが行うこと
