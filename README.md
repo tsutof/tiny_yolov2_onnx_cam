@@ -29,7 +29,7 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
     $ pip3 install --user cython
     ```
 
-1. Install this application.
+1. Install this application and the dependent modules.
 
     ```
     $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
