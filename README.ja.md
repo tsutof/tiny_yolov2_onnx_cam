@@ -15,7 +15,7 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
 
 ## インストール方法
 
-1. 依存ライブラリをインストール
+1. 依存ライブラリをインストールします。
 
     ```
     $ sudo apt update
