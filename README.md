@@ -23,7 +23,7 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
     $ sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
     ```
   
-1. **You might need to install Cython alone prior to the other python modules installation. Otherwise "*RuntimeError: Running cythonize failed!*" might happens at the numpy installation.**
+1. You might need to install **Cython** alone prior to the other python modules installation. Otherwise "*RuntimeError: Running cythonize failed!*" might happens at the numpy installation.
 
     ```
     $ pip3 install --user cython
