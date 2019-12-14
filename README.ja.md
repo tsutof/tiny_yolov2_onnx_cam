@@ -61,13 +61,13 @@ $ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--width WIDTH]
                                   [--nmsth NMS_THRESH]
 
 optional arguments:
-  -h, --help            show this help message and exit
+  -h, --help            ヘルプメッセージを表示し、終了
   --camera CAMERA_NUM, -c CAMERA_NUM
-                        Camera number, use any negative integer for MIPI-CSI camera
-  --width WIDTH         Capture width
-  --height HEIGHT       Capture height
-  --objth OBJ_THRESH    Threshold of object confidence score (between 0 and 1)
-  --nmsth NMS_THRESH    Threshold of NMS algorithm (between 0 and 1)
+                        カメラナンバー、MIPI-CSI カメラの場合は任意の負数を指定 
+  --width WIDTH         カメラキャプチャー幅
+  --height HEIGHT       カメラキャプチャー高
+  --objth OBJ_THRESH    オブジェクト検出のスコア閾値（0 ～ 1）
+  --nmsth NMS_THRESH    NMS（非最大値の抑制）アルゴリズムの閾値（0 ～ 1）
 ```
 
 Raspberry Pi camera v2 などの CSI カメラを利用する場合はカメラナンバーに任意の負数を指定します。
