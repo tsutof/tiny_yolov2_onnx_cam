@@ -16,9 +16,9 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
 ## Installation
 
 ```
-$ sudo apt-get update
+$ sudo apt update
 
-$ sudo apt-get install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
+$ sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
 
 $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
 
