@@ -22,9 +22,9 @@ $ sudo apt update
 
 $ sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
 
-$ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
-
 $ pip3 install --user cython
+
+$ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
 
 $ cd tiny_yolov2_onnx_cam
 
