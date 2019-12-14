@@ -53,6 +53,7 @@ $ sudo jetson_clocks
 ```
 
 本アプリケーションは以下のコマンドで実行します。
+終了するには ESC キーを押します。
 
 ```
 $ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--width WIDTH]
