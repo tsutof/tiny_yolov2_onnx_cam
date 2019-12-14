@@ -29,7 +29,7 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
     $ pip3 install --user cython
     ```
 
-1. 本アプリケーションをインストールします。
+1. 本アプリケーションと依存モジュールをインストールします。
 
     ```
     $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
