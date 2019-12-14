@@ -15,23 +15,31 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
 
 ## Installation
 
-**You might need to install Cython alone prior to the other python modules installation. Otherwise "*RuntimeError: Running cythonize failed!*" might happens at the numpy installation.**
+1. Install dependent libraries.
 
-```
-$ sudo apt update
+    ```
+    $ sudo apt update
 
-$ sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
+    $ sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
+    ```
+  
+1. **You might need to install Cython alone prior to the other python modules installation. Otherwise "*RuntimeError: Running cythonize failed!*" might happens at the numpy installation.**
 
-$ pip3 install --user cython
+    ```
+    $ pip3 install --user cython
+    ```
 
-$ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
+1. Install this application.
 
-$ cd tiny_yolov2_onnx_cam
+    ```
+    $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
 
-$ export PATH=$PATH:/usr/local/cuda/bin
+    $ cd tiny_yolov2_onnx_cam
 
-$ python3 -m pip install -r requirements.txt
-```
+    $ export PATH=$PATH:/usr/local/cuda/bin
+
+    $ python3 -m pip install -r requirements.txt
+    ```
 
 ## Usage
 
