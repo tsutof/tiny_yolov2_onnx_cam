@@ -54,6 +54,7 @@ $ sudo jetson_clocks
 ```
 
 The following command starts this application.
+Press ESC key to exit from this application.
 
 ```
 $ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--width WIDTH]
