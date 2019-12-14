@@ -25,7 +25,7 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
     $ sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
     ```
 
-1. 他の Python モジュールをインストールする前に、**Cython** モジュールをインストールします。これを行わないと NumPy インストール時に **RuntimeError: Running cythonize failed!** エラーが発生する場合があります。
+1. 他の Python モジュールをインストールする前に、**Cython** モジュールをインストールします。これを行わないと次のステップで行う NumPy インストール時に **RuntimeError: Running cythonize failed!** エラーが発生する場合があります。
 
     ```
     $ pip3 install --user cython
