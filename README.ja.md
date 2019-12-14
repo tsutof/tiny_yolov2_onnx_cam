@@ -41,7 +41,7 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
     $ python3 -m pip install -r requirements.txt
     ```
 
-## 利用方法
+## 実行方法
 
 最初に Jetson のクロックアップを行います。これを行わないと、ビデオ・キャプチャー時に *select timeout* が発生します。
 
