@@ -15,7 +15,7 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
 
 ## Installation
 
-**You might need to install Cython alone prior to install other python modules. Otherwise "*RuntimeError: Running cythonize failed!*" might happens at the numpy installation.**
+**You might need to install Cython alone prior to the other python modules installation. Otherwise "*RuntimeError: Running cythonize failed!*" might happens at the numpy installation.**
 
 ```
 $ sudo apt update
