@@ -150,13 +150,16 @@ def main():
         # Open the V4L2 camera
         cap = cv2.VideoCapture(args.camera)
         # Set the capture parameters
-        cap.set(cv2.CAP_PROP_FPS, FPS)
+        #cap.set(cv2.CAP_PROP_FPS, FPS)     # Comment-out for OpenCV 4.1
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, args.width)
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.height)
 
     # Get the actual frame size
-    act_width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-    act_height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+    # OpenCV 4.1 does not get the correct frame size
+    #act_width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+    #act_height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+    act_width = args.width
+    act_height = args.height
     frame_info = 'Frame:%dx%d' %  (act_width, act_height)
 
     # Download the label data
