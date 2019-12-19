@@ -87,7 +87,7 @@ $ python3 tiny_yolov2_onnx_cam.py --camera 1
 
 **If your USB Web camera does not support this application's default capture resolution, please change it with the --widht and --height command-line options.**
 
-To know the supported resolutions by your camera, **the gst-device-monitor-1.0** command is very useful.
+To know the supported resolutions by your camera, the **gst-device-monitor-1.0** command is very useful.
 
 ## Third Party License 
 
