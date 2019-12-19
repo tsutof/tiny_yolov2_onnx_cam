@@ -85,6 +85,8 @@ For USB Web camera, if you camera is detected as /dev/video1, use 1 as the camer
 $ python3 tiny_yolov2_onnx_cam.py --camera 1
 ```
 
+**If your USB Web camera does not support this application's default capture resolution, please change it with the --widht and --height command-line options.**
+
 ## Third Party License 
 
 This program is using open source software which is licensed with the following conditions:
