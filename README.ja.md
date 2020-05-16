@@ -43,8 +43,6 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
     $ python3 -m pip install -r requirements.txt
     ```
 
-    requirements.txt 内に onnx==1.4.1 とバージョン指定があります。これは TensorRT を ONNX 1.5.x と共に使用したときにエラーが発生するためです。ONNX 1.6.0 になってこの問題は解消されたようですので、近い将来、ONNX のバージョン指定は onnx>=1.6.0 に変更する予定です。
-
 ## 実行方法
 
 最初に Jetson のクロックアップを行います。これを行わないと、ビデオ・キャプチャー時に *select timeout* が発生します。
