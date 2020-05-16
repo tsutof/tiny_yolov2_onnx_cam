@@ -43,8 +43,6 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
     $ python3 -m pip install -r requirements.txt
     ```
 
-    There is the "onnx==1.4.1" restriction in the requirements.txt, because TensorRT dosen't work with ONNX 1.5.x. It seems that ONNX 1.6.0 has no problem with TensorRT. So the version restriction will be changed to "onnx>=1.6.0" in the near future.
-
 ## Usage
 
 First, clock up your Jetson.
