@@ -62,8 +62,13 @@ TRT_LOGGER = trt.Logger()
 def get_engine(onnx_file_path, engine_file_path=""):
     """Attempts to load a serialized engine if available, otherwise builds a new TensorRT engine and saves it."""
     def build_engine():
+        # EXPLICIT_BATCH is needed for TensorRT v7
+        creation_flag = 0
+        if trt.__version__ >= '7.0.0.0':
+            creation_flag = common.EXPLICIT_BATCH
+            print('EXPLICIT_BATCH is set.')
         """Takes an ONNX file and creates a TensorRT engine to run inference with"""
-        with trt.Builder(TRT_LOGGER) as builder, builder.create_network(common.EXPLICIT_BATCH) as network, trt.OnnxParser(network, TRT_LOGGER) as parser:
+        with trt.Builder(TRT_LOGGER) as builder, builder.create_network(creation_flag) as network, trt.OnnxParser(network, TRT_LOGGER) as parser:
             builder.max_workspace_size = 1 << 28 # 256MiB
             builder.max_batch_size = 1
             # Parse model file
