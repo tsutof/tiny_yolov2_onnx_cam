@@ -126,8 +126,10 @@ def main():
     parser = argparse.ArgumentParser(description='Tiny YOLO v2 Object Detector')
     parser.add_argument('--camera', '-c', \
         type=int, default=0, metavar='CAMERA_NUM', \
-        help='Camera number, use any negative integer for MIPI-CSI camera')
-    parser.add_argument('--csi', action='store_true')
+        help='Camera number')
+    parser.add_argument('--csi', \
+        action='store_true', \
+        help='Use CSI camera')
     parser.add_argument('--width', \
         type=int, default=1280, metavar='WIDTH', \
         help='Capture width')
