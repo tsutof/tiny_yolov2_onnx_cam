@@ -42,7 +42,7 @@ import argparse
 
 FPS = 30
 GST_STR_CSI = 'nvarguscamerasrc \
-    ! video/x-raw(memory:NVMM), width=(int)%d, height=(int)%d, format=(string)NV12, framerate=(fraction)%d/1 \
+    ! video/x-raw(memory:NVMM), width=(int)%d, height=(int)%d, format=(string)NV12, framerate=(fraction)%d/1, sensor-id=%d \
     ! nvvidconv ! video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx \
     ! videoconvert \
     ! appsink'
@@ -127,6 +127,7 @@ def main():
     parser.add_argument('--camera', '-c', \
         type=int, default=0, metavar='CAMERA_NUM', \
         help='Camera number, use any negative integer for MIPI-CSI camera')
+    parser.add_argument('--csi', action='store_true')
     parser.add_argument('--width', \
         type=int, default=1280, metavar='WIDTH', \
         help='Capture width')
@@ -141,10 +142,12 @@ def main():
         help='Threshold of NMS algorithm (between 0 and 1)')
     args = parser.parse_args()
 
-    if args.camera < 0:
+    if args.csi or (args.camera < 0):
+        if args.camera < 0:
+            args.camera = 0
         # Open the MIPI-CSI camera
         gst_cmd = GST_STR_CSI \
-            % (args.width, args.height, FPS, args.width, args.height)
+            % (args.width, args.height, FPS, args.camera, args.width, args.height)
         cap = cv2.VideoCapture(gst_cmd, cv2.CAP_GSTREAMER)
     else:
         # Open the V4L2 camera
@@ -245,6 +248,10 @@ def main():
             if key == 27: # ESC
                 break
 
+            # Check if the window was closed
+            if cv2.getWindowProperty(WINDOW_NAME, cv2.WND_PROP_AUTOSIZE) < 0:
+                break
+
             # Calculate the average FPS value of the last ten frames
             elapsed_time = time.time() - start_time
             time_list = np.append(time_list, elapsed_time)
@@ -256,6 +263,8 @@ def main():
 
     # Release the capture object
     cap.release()
+
+    cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()
