@@ -64,8 +64,7 @@ $ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
 optional arguments:
   -h, --help            show this help message and exit
   --camera CAMERA_NUM, -c CAMERA_NUM
-                        Camera number, use any negative integer for MIPI-CSI
-                        camera
+                        Camera number
   --csi                 Use CSI camera
   --width WIDTH         Capture width
   --height HEIGHT       Capture height
