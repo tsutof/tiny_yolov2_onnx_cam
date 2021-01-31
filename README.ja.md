@@ -56,24 +56,25 @@ $ sudo jetson_clocks
 終了するには ESC キーを押します。
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--width WIDTH]
-                                  [--height HEIGHT] [--objth OBJ_THRESH]
-                                  [--nmsth NMS_THRESH]
+$ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
+                               [--width WIDTH] [--height HEIGHT]
+                               [--objth OBJ_THRESH] [--nmsth NMS_THRESH]
 
 optional arguments:
   -h, --help            ヘルプメッセージを表示し、終了
   --camera CAMERA_NUM, -c CAMERA_NUM
-                        カメラナンバー、MIPI-CSI カメラの場合は任意の負数を指定 
+                        カメラナンバー
+  --csi                 CSIカメラ利用時にセット
   --width WIDTH         カメラキャプチャー幅
   --height HEIGHT       カメラキャプチャー高
   --objth OBJ_THRESH    オブジェクト検出のスコア閾値（0 ～ 1）
   --nmsth NMS_THRESH    NMS（非最大値の抑制）アルゴリズムの閾値（0 ～ 1）
 ```
 
-Raspberry Pi camera v2 などの CSI カメラを利用する場合はカメラナンバーに任意の負数を指定します。
+Raspberry Pi camera v2 などの CSI カメラを利用する場合は **--csi** オプションを付けます。
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py --camera -1
+$ python3 tiny_yolov2_onnx_cam.py --csi --camera 0
 ```
 
 USB ウェブカメラを利用する場合はそのデバイスナンバーを指定します。/dev/video0 と認識されているカメラは 0 を、/dev/video1 と認識されているカメラは 1 を指定します。
