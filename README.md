@@ -57,24 +57,26 @@ The following command starts this application.
 Press ESC key to exit from this application.
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--width WIDTH]
-                                  [--height HEIGHT] [--objth OBJ_THRESH]
-                                  [--nmsth NMS_THRESH]
+$ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
+                               [--width WIDTH] [--height HEIGHT]
+                               [--objth OBJ_THRESH] [--nmsth NMS_THRESH]
 
 optional arguments:
   -h, --help            show this help message and exit
   --camera CAMERA_NUM, -c CAMERA_NUM
-                        Camera number, use any negative integer for MIPI-CSI camera
+                        Camera number, use any negative integer for MIPI-CSI
+                        camera
+  --csi                 Use CSI camera
   --width WIDTH         Capture width
   --height HEIGHT       Capture height
   --objth OBJ_THRESH    Threshold of object confidence score (between 0 and 1)
   --nmsth NMS_THRESH    Threshold of NMS algorithm (between 0 and 1)
 ```
 
-For Raspberry Pi camera v2, use any negative number as the camera number.
+For Raspberry Pi camera v2, set --csi option.
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py --camera -1 
+$ python3 tiny_yolov2_onnx_cam.py --csi --camera 0
 ```
 
 For USB Web camera, if you camera is detected as /dev/video1, use 1 as the camera number.
