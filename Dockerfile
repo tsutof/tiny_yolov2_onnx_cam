@@ -1,9 +1,9 @@
 #
 # Dockerfile to build the image of the tiny_yolov2_onnx_cam application
-# Please note that the supported platform is NVIDIA Jetson with JetPack 4.5 only.
 #
 
-FROM nvcr.io/nvidia/l4t-base:r32.5.0
+ARG BASE_IMAGE=nvcr.io/nvidia/l4t-base:r32.5.0
+FROM ${BASE_IMAGE}
 
 ARG REPOSITORY_NAME=tiny_yolov2_onnx_cam
 
@@ -39,7 +39,8 @@ RUN pip3 install \
         Pillow>=5.2.0 \
         wget>=3.2 \
         pycuda>=2017.1.1 \
-        onnx>=1.6.0
+        onnx>=1.6.0 \
+        paho-mqtt
 
 RUN mkdir /${REPOSITORY_NAME}
 COPY ./ /${REPOSITORY_NAME}
