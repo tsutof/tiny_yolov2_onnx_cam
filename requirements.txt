@@ -3,3 +3,4 @@ onnx>=1.6.0
 pycuda>=2017.1.1
 Pillow>=5.2.0
 wget>=3.2
+paho-mqtt
