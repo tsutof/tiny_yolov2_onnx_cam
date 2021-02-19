@@ -92,6 +92,10 @@ To know the supported resolutions by your camera, the **gst-device-monitor-1.0**
 
 *[Please refer to this page](docs/docker.md)*
 
+## MQTT Support
+
+*[Please refer to this page](docs/mqtt.md)*
+
 ## Third Party License 
 
 This program is using open source software which is licensed with the following conditions:
