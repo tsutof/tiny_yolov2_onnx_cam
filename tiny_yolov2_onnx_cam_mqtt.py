@@ -52,12 +52,13 @@ def init_mqtt(host, port=1883):
     client = mqtt.Client()
     client.on_connect = on_connect
     client.on_disconnect = on_disconnect
-    client.on_publish = on_publish
+    #client.on_publish = on_publish
     client.connect(host, port, 60)
     client.loop_start()
     return client
 
-def publish_bboxes(client, topic, image, bboxes, confidences, categories, all_categories):
+def publish_bboxes(client, topic, frame_num, \
+    image, bboxes, confidences, categories, all_categories):
     for box, score, category in zip(bboxes, confidences, categories):
         x_coord, y_coord, width, height = box
         img_height, img_width, _ = image.shape
@@ -65,7 +66,8 @@ def publish_bboxes(client, topic, image, bboxes, confidences, categories, all_ca
         top = max(0, np.floor(y_coord + 0.5).astype(int))
         right = min(img_width, np.floor(x_coord + width + 0.5).astype(int))
         bottom = min(img_height, np.floor(y_coord + height + 0.5).astype(int))
-        info = '{0}, {1:.2f}, {2}, {3}, {4}, {5}'.format(
+        info = '{0}, {1}, {2:.2f}, {3}, {4}, {5}, {6}'.format(
+            frame_num,
             all_categories[category],
             score,
             left,
@@ -105,6 +107,9 @@ def main():
     parser.add_argument('--topic', \
         type=str, metavar='MQTT_TOPIC', \
         help='MQTT topic to be published on')
+    parser.add_argument('--port', \
+        type=int, default=1883, metavar='MQTT_PORT', \
+        help='MQTT port number')
     parser.add_argument('--novout', \
         action='store_true', \
         help='No video output')
@@ -112,7 +117,7 @@ def main():
 
     client = None
     if args.topic is not None:
-        client = init_mqtt(args.host)
+        client = init_mqtt(args.host, args.port)
 
     if args.csi or (args.camera < 0):
         if args.camera < 0:
@@ -207,10 +212,11 @@ def main():
                 boxes, classes, scores \
                     = postprocessor.process(trt_outputs, (act_width, act_height))
 
-                if args.novout:
-                    if boxes is not None:
-                        publish_bboxes(client, args.topic, img, boxes, scores, classes, categories)
-                else:
+                if boxes is not None:
+                    publish_bboxes(client, args.topic, frame_count, \
+                        img, boxes, scores, classes, categories)
+
+                if not args.novout:
                     # Draw the bounding boxes
                     if boxes is not None:
                         appbase.draw_bboxes(img, boxes, scores, classes, categories)
@@ -249,7 +255,8 @@ def main():
     if not args.novout:
         cv2.destroyAllWindows()
 
-    client.disconnect()
+    if client is not None:
+        client.disconnect()
 
 if __name__ == "__main__":
     main()
