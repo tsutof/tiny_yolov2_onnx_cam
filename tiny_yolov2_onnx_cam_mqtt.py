@@ -66,7 +66,7 @@ def publish_bboxes(client, topic, frame_num, \
         top = max(0, np.floor(y_coord + 0.5).astype(int))
         right = min(img_width, np.floor(x_coord + width + 0.5).astype(int))
         bottom = min(img_height, np.floor(y_coord + height + 0.5).astype(int))
-        info = '{0}, {1}, {2:.2f}, {3}, {4}, {5}, {6}'.format(
+        info = '{0},{1},{2:.2f},{3},{4},{5},{6}'.format(
             frame_num,
             all_categories[category],
             score,
