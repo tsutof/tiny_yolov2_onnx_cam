@@ -39,8 +39,8 @@ Comma separated text.
 ### Examples
 
 ```
-2312, tvmonitor, 0.61, 480, 4, 627, 176
-2312, person, 0.60, 82, 103, 547, 480
+2312,tvmonitor,0.61,480,4,627,176
+2312,person,0.60,82,103,547,480
 ```
 
 *[Return to README](../README.md)*
