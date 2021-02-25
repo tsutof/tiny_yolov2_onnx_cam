@@ -48,7 +48,8 @@ GST_STR_CSI = 'nvarguscamerasrc \
     ! appsink'
 WINDOW_NAME = 'Tiny YOLO v2'
 INPUT_RES = (416, 416)
-MODEL_URL = 'https://onnxzoo.blob.core.windows.net/models/opset_8/tiny_yolov2/tiny_yolov2.tar.gz'
+#MODEL_URL = 'https://onnxzoo.blob.core.windows.net/models/opset_8/tiny_yolov2/tiny_yolov2.tar.gz'
+MODEL_URL = 'https://github.com/onnx/models/raw/master/vision/object_detection_segmentation/tiny-yolov2/model/tinyyolov2-8.tar.gz'
 LABEL_URL = 'https://raw.githubusercontent.com/pjreddie/darknet/master/data/voc.names'
 
 # Draw bounding boxes on the screen from the YOLO inference result
@@ -107,17 +108,18 @@ def download_label():
 # if it doesn't exist yet.
 def download_model():
     file = download_file_from_url(MODEL_URL)
-    base, _ = os.path.splitext(file)
-    ext_dir_name, _ = os.path.splitext(base)
-    if os.path.isdir(ext_dir_name) == False:
-        tar = tarfile.open(file)
-        tar.extractall()
-        tar.close()
+    tar = tarfile.open(file)
+    infs = tar.getmembers()
     onnx_file = None
-    for f in os.listdir(ext_dir_name):
+    for inf in infs:
+        f = inf.name
         _, ext = os.path.splitext(f)
         if ext == '.onnx':
-            onnx_file = os.path.join(ext_dir_name, f)
+            onnx_file = f
+            break
+    if not os.path.exists(onnx_file):
+        tar.extract(onnx_file)
+    tar.close()
     return (onnx_file)
 
 # Main function
