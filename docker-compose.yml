@@ -23,6 +23,7 @@ services:
       context: ./
       args: 
         - BASE_IMAGE=${BASE_IMAGE}
+    image: tiny_yolov2_onnx_cam:l4t-r${L4T_VERSION}
     network_mode: "host"
     runtime: "nvidia"
     environment: 
@@ -34,4 +35,4 @@ services:
       - "/tmp/.X11-unix/:/tmp/.X11-unix"
     depends_on: 
       - "dashboard"
-    command: python3 tiny_yolov2_onnx_cam_mqtt.py --topic tiny_yolov2_onnx_cam
+    command: python3 tiny_yolov2_onnx_cam_mqtt.py --topic tiny_yolov2_onnx_cam --novout
