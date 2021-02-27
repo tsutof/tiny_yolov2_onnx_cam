@@ -1,0 +1,202 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Person Count",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "dcd45927.24e728",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "topic": "tiny_yolov2_onnx_cam",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "b02bd436.da2208",
+        "x": 190,
+        "y": 360,
+        "wires": [
+            [
+                "70e5a254.917fec",
+                "61766b56.5aa414"
+            ]
+        ]
+    },
+    {
+        "id": "70e5a254.917fec",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "61766b56.5aa414",
+        "type": "csv",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "frame, label, score, x_min, y_min, x_max, y_max",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "6aa481be.54f73",
+                "15f65895.a4fa37"
+            ]
+        ]
+    },
+    {
+        "id": "bcd2beff.a351e",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "sum",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "6aa481be.54f73",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "func": "var s = global.get(\"sum\")||0;\nvar label = msg.payload.label\nif (label == \"person\") {\n    s += 1\n}\nglobal.set(\"sum\", s);\nmsg.sum = s;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "bcd2beff.a351e",
+                "eb50bbd3.337428"
+            ]
+        ]
+    },
+    {
+        "id": "15f65895.a4fa37",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.label",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "eb50bbd3.337428",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "sum",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 220,
+        "wires": [
+            [
+                "fd8190f3.8202f"
+            ]
+        ]
+    },
+    {
+        "id": "fd8190f3.8202f",
+        "type": "ui_text",
+        "z": "f6f2187d.f17ca8",
+        "group": "c6807e0a.47ab",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Person Count",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 660,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b02bd436.da2208",
+        "type": "mqtt-broker",
+        "name": "my-mqtt-broker",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "c6807e0a.47ab",
+        "type": "ui_group",
+        "name": "Object Detection Demo",
+        "tab": "295b6d28.1c5a92",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "295b6d28.1c5a92",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
