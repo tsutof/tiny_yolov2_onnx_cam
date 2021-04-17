@@ -105,6 +105,10 @@ To know the supported resolutions by your camera, the **gst-device-monitor-1.0**
 
 *[Please refer to this page](docs/mqtt.md)*
 
+## Microservices Demo
+
+*[Please refer to this page](docs/microservices_demo.md)
+
 ## Third Party License 
 
 This program is using open source software which is licensed with the following conditions:
