@@ -13,28 +13,28 @@
 
 ## 実行方法
 
-### Starting Services
-1. Clone the repository if you don't have it yet.
+### サービスの起動
+1. （もし、まだであったら）本リポジトリのクローン
 ```
 $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
 ```
-2. Add execution permission to the scripts.
+2. シェルスクリプトファイルに実行権限を付与
 ```
 $ cd tiny_yolov2_onnx_cam
 
 $ chmod +x ./scripts/*.sh
 ```
-3. Since this demo need much processor cycles, set the power model to the mode 0 and clock up.
+3. Jetson Nanoの電力モードをモード0にして、クロックアップ
 ```
 $ sudo nvpmodel -m 0
 
 $ sudo jetson_clocks
 ```
-4. Start the services.
+4. サービスを起動
 ```
 $ ./scripts/compose-up.sh
 ```
-**At the first launch, the docker image building takes about 30min.**
+**最初の起動時に、Dockerイメージのビルドに約30分を要します。**
 
 ### Access to Dashboard
 You can access to the Node-RED dashboard at [http://localhost:1880/ui](http://localhost:1880/ui)
