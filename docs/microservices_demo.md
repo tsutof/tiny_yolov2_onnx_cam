@@ -20,7 +20,7 @@ $ chmod +x ./scripts/*.sh
 $ ./scripts/compose-up.sh
 ```
 
-At the first launch, the docker image build takes about 30min.
+At the first launch, the docker image building takes about 30min.
 
 ### Access to Dashboard
 You can access to the Node-RED dashboard at [http://localhost:1880/ui](http://localhost:1880/ui)
@@ -30,10 +30,13 @@ You can access to the Node-RED dashboard at [http://localhost:1880/ui](http://lo
 $ ./scripts/compose-down.sh
 ```
 
-## docker-compose with the runtime option support
+## How to Install docker-compose with the runtime Option Support
+The versions of docker-compose can be installed with apt install on L4T, don't support the **runtime** option, but you need the option support to run L4T based docker containers.
+Here is an example to install the recent versions of docker-compose which supports the runtime option.
 
+If you already have pip installed with apt in your Jetson. Remove it.
 ```
-
+$ sudo apt remove python3-pip
 ```
 
 *[Return to README](../README.md)*
