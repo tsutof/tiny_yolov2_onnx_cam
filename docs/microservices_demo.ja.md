@@ -46,7 +46,7 @@ $ ./scripts/compose-down.sh
 ```
 
 ## runtimeオプションがサポートされたdocker-composeをインストールする方法
-現時点（2021年4月）で、L4Tからapt installでインストールできるdocker-composeは **runtime** オプションがサポートされていません。また、apt installでインストールしたpipでインストールできるdocker-composeも同様です。一例として、以下の方法で、**runtime** オプションをサポートしたdocker-composeをインストールできます。
+現時点（2021年4月）で、L4T上のapt installでインストールできるdocker-composeは **runtime** オプションがサポートされていません。また、apt installでインストールしたpipでインストールできるdocker-composeも同様です。一例として、以下の方法で、**runtime** オプションをサポートしたdocker-composeをインストールできます。
 **runtime** オプションは [NVIDIA L4T Base](https://ngc.nvidia.com/catalog/containers/nvidia:l4t-base) をベースイメージとして、Dockerコンテナを起動するために必要です。
 
 1. apt installでインストールしたpipが存在すれば、それを削除
