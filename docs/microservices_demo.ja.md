@@ -36,11 +36,11 @@ $ ./scripts/compose-up.sh
 ```
 **最初の起動時に、Dockerイメージのビルドに約30分を要します。**
 
-### Access to Dashboard
-You can access to the Node-RED dashboard at [http://localhost:1880/ui](http://localhost:1880/ui)
+### ダッシュボードへアクセス
+[http://localhost:1880/ui](http://localhost:1880/ui) からダッシュボードへアクセスできます。
 <img src="./dashboard.png" alt="Dashboard" title="Dashboard" width="640">
 
-### Stopping Sevices
+### サービスの停止（別のターミナルから）
 ```
 $ ./scripts/compose-down.sh
 ```
