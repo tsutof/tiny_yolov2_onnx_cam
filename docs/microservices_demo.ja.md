@@ -38,7 +38,7 @@ $ ./scripts/compose-up.sh
 **最初の起動時に、Dockerイメージのビルドに約30分を要します。**
 
 ### CSIカメラ
-Raspbery Piカメラv2などのCSIカメラを使用する場合は、アプリケーションの実行に **--csi** オプションを付けてください。[docker-compose.yml](../docker-compose.yml) の最後の行を以下のように変更します。
+Raspbery Pi Camera V2などのCSIカメラを使用する場合は、アプリケーションの実行に **--csi** オプションを付けてください。[docker-compose.yml](../docker-compose.yml) の最後の行を以下のように変更します。
 ```
 command: python3 tiny_yolov2_onnx_cam_mqtt.py --topic tiny_yolov2_onnx_cam --novout --csi
 ```
