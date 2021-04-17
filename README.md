@@ -6,6 +6,7 @@
 <img src="./screenshot.png" alt="Screenshot" title="Screenshot" width="640" height="360">
 
 ## Table of Contents
+- [What Does This Application Do?](#What Does This Application Do?)
 - [Prerequisites](#Prerequisites)
 
 ## What Does This Application Do?
