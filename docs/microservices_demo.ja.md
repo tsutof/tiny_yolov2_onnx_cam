@@ -45,7 +45,7 @@ $ ./scripts/compose-up.sh
 $ ./scripts/compose-down.sh
 ```
 
-## How to Install docker-compose with the runtime Option Support
+## runtimeオプションがサポートされたdocker-composeをインストールする方法
 At this time, the versions of docker-compose can be installed with apt install on L4T, don't support the **runtime** option, but you need the option support to run L4T based docker containers.
 Here is an example to install the recent versions of docker-compose which supports the runtime option.
 
