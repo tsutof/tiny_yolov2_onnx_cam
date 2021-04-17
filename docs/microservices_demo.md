@@ -38,18 +38,18 @@ Here is an example to install the recent versions of docker-compose which suppor
 ```
 $ sudo apt remove python3-pip
 ```
-1. Install pip from PyPA
+2. Install pip from PyPA
 ```
 $ sudo apt update
 $ sudo apt install curl python3-testresources
 $ curl -kL https://bootstrap.pypa.io/get-pip.py | python3
 ```
-1. Install docker-compose
+3. Install docker-compose
 ```
 $ python3 -m pip install --user docker-compose
 ```
-1. Add $HOME/.local/bin directory in your PATH.
-1. Comfirm docker-compose installed successfully.
+4. Add $HOME/.local/bin directory in your PATH.
+5. Comfirm docker-compose installed successfully.
 ```
 docker-compose --version
 ```
