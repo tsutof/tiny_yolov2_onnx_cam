@@ -1,36 +1,36 @@
-# DockerƒTƒ|[ƒg
+# Dockerã‚µãƒãƒ¼ãƒˆ
 
-## DockerƒCƒ[ƒW‚Ìƒrƒ‹ƒh
+## Dockerã‚¤ãƒ¡ãƒ¼ã‚¸ã®ãƒ“ãƒ«ãƒ‰
 
-1. i‚à‚µA‚Ü‚¾‚Å‚ ‚Á‚½‚çj–{ƒŠƒ|ƒWƒgƒŠ‚ÌƒNƒ[ƒ“
+1. ï¼ˆã‚‚ã—ã€ã¾ã ã§ã‚ã£ãŸã‚‰ï¼‰æœ¬ãƒªãƒã‚¸ãƒˆãƒªã®ã‚¯ãƒ­ãƒ¼ãƒ³
 ```
 $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
 ```
-2. ƒVƒFƒ‹ƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹‚ÉŽÀsŒ ŒÀ‚ð•t—^
+2. ã‚·ã‚§ãƒ«ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã«å®Ÿè¡Œæ¨©é™ã‚’ä»˜ä¸Ž
 ```
 $ cd tiny_yolov2_onnx_cam
 
 $ chmod +x ./scripts/*.sh
 ```
-3. Jetson Nano‚Ì“d—Íƒ‚[ƒh‚ðƒ‚[ƒh0‚É‚µ‚ÄAƒNƒƒbƒNƒAƒbƒv
+3. Jetson Nanoã®é›»åŠ›ãƒ¢ãƒ¼ãƒ‰ã‚’ãƒ¢ãƒ¼ãƒ‰0ã«ã—ã¦ã€ã‚¯ãƒ­ãƒƒã‚¯ã‚¢ãƒƒãƒ—
 ```
 $ sudo nvpmodel -m 0
 
 $ sudo jetson_clocks
 ```
-4. DockerƒCƒ[ƒW‚Ìƒrƒ‹ƒh
+4. Dockerã‚¤ãƒ¡ãƒ¼ã‚¸ã®ãƒ“ãƒ«ãƒ‰
 ```
 $ ./scripts/docker_build.sh
 ```
 
-## ƒrƒ‹ƒh‚µ‚½DockerƒCƒ[ƒW‚©‚çƒRƒ“ƒeƒi‚ð‹N“®
+## ãƒ“ãƒ«ãƒ‰ã—ãŸDockerã‚¤ãƒ¡ãƒ¼ã‚¸ã‹ã‚‰ã‚³ãƒ³ãƒ†ãƒŠã‚’èµ·å‹•
 
 ```
 $ ./scripts/docker_run.sh
 ```
-**docker_run.sh** ‚Í—á‚Æ‚µ‚Ä’ñ‹Ÿ‚µ‚Ä‚¢‚Ü‚·B**/dev/video0** ‚ðƒJƒƒ‰“ü—Í‚Æ‚µ‚Ä‚¢‚Ü‚·‚ªA‚²Žg—p‚ÌŠÂ‹«‚É‡‚í‚¹‚Ä•ÏX‚µ‚Ä‚­‚¾‚³‚¢B
+**docker_run.sh** ã¯ä¾‹ã¨ã—ã¦ **/dev/video0** ã‚’ã‚«ãƒ¡ãƒ©å…¥åŠ›ã¨ã—ã¦ã„ã¾ã™ãŒã€ã”ä½¿ç”¨ã®ç’°å¢ƒã«åˆã‚ã›ã¦å¤‰æ›´ã—ã¦ãã ã•ã„ã€‚
 
-ƒRƒ“ƒeƒi“à‚ÌƒVƒFƒ‹‚©‚çAˆÈ‰º‚ÌƒRƒ}ƒ“ƒh‚Å–{ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ð‹N“®‚Å‚«‚Ü‚·BESCƒL[‚ÅƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ðI—¹‚µ‚Ü‚·B
+ã‚³ãƒ³ãƒ†ãƒŠå†…ã®ã‚·ã‚§ãƒ«ã‹ã‚‰ã€ä»¥ä¸‹ã®ã‚³ãƒžãƒ³ãƒ‰ã§æœ¬ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’èµ·å‹•ã§ãã¾ã™ã€‚ESCã‚­ãƒ¼ã§ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’çµ‚äº†ã—ã¾ã™ã€‚
 
 ```
 # python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
@@ -48,9 +48,9 @@ optional arguments:
   --nmsth NMS_THRESH    Threshold of NMS algorithm (between 0 and 1)
 ```
 
-**exit** ‚ÅAƒRƒ“ƒeƒi‚©‚çƒzƒXƒgOS‚É–ß‚è‚Ü‚·B
+**exit** ã§ã€ã‚³ãƒ³ãƒ†ãƒŠã‹ã‚‰ãƒ›ã‚¹ãƒˆOSã«æˆ»ã‚Šã¾ã™ã€‚
 ```
 # exit
 ```
 
-*[README.ja‚É–ß‚é](../README.ja.md)*
+*[README.jaã«æˆ»ã‚‹](../README.ja.md)*
