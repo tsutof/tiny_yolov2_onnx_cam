@@ -36,6 +36,12 @@ $ ./scripts/compose-up.sh
 ```
 **At the first launch, the docker image building takes about 30min.**
 
+### CSI Camera
+If you use a CSI camera like Raspberry Pi camera v2, add the **--csi** option to the application at the last line of docker-compose.yml.
+```
+command: python3 tiny_yolov2_onnx_cam_mqtt.py --topic tiny_yolov2_onnx_cam --novout --csi
+```
+
 ### Access to Dashboard
 You can access to the Node-RED dashboard at [http://localhost:1880/ui](http://localhost:1880/ui)
 <img src="./dashboard.png" alt="Dashboard" title="Dashboard" width="640">
