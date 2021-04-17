@@ -4,14 +4,14 @@
 
 本デモはEclipse Mosquitto™をMQTTブローカーとして利用、Node-REDをダッシュボードとして利用しています。
 
-## Prerequisites
+## 前提する環境
 
-- NVIDIA Jetson Nano Developer Kit
-- USB Web Camera or Raspberry Pi Camera V2
-- NVIDIA JetPack **4.4 or later**
-- docker-compose with the **runtime** option support
+- NVIDIA Jetson Nano開発者キット
+- USBウェブカメラ、または、Raspberry Pi Camera V2
+- NVIDIA JetPack **4.4 または、それ以降のバージョン**
+- **runtime** オプションがサポートされたdocker-compose
 
-## Usage
+## 実行方法
 
 ### Starting Services
 1. Clone the repository if you don't have it yet.
