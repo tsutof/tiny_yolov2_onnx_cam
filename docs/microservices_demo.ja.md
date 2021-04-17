@@ -1,5 +1,5 @@
 # マイクロサービス・デモ
-**「Jetson Nano 超入門 改訂 第2版 9-4 Dockerを利用したデプロイメント」で紹介**
+**「Jetson Nano 超入門 改訂 第2版 9-4 Dockerを利用したデプロイメント」で紹介しているサンプルアプリケーション**
 
 <img src="./services.png" alt="Services" title="Services" width="640">
 
