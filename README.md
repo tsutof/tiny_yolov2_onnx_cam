@@ -12,6 +12,7 @@
 - [Usage](#usage)
 - [Docker Support](#docker-support)
 - [MQTT Support](#mqtt-support)
+- [Microservices Demo](#microservices-demo)
 - [Third Party License](#third-party-license)
 
 ## What Does This Application Do?
@@ -107,7 +108,7 @@ To know the supported resolutions by your camera, the **gst-device-monitor-1.0**
 
 ## Microservices Demo
 
-*[Please refer to this page](docs/microservices_demo.md)
+*[Please refer to this page](docs/microservices_demo.md)*
 
 ## Third Party License 
 
