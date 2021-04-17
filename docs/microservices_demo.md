@@ -12,17 +12,27 @@
 ## Usage
 
 ### Starting Services
+1. Clone the repository if you don't have it yet.
 ```
 $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
-
+```
+2. Add execution permission to the scripts.
+```
 $ cd tiny_yolov2_onnx_cam
 
 $ chmod +x ./scripts/*.sh
+```
+3. Since this demo need much processor cycles, set the power model to the mode 0 and clock up.
+```
+$ sudo nvpmodel -m 0
 
+$ sudo jetson_clocks
+```
+4. Start the services.
+```
 $ ./scripts/compose-up.sh
 ```
-
-At the first launch, the docker image building takes about 30min.
+**At the first launch, the docker image building takes about 30min.**
 
 ### Access to Dashboard
 You can access to the Node-RED dashboard at [http://localhost:1880/ui](http://localhost:1880/ui)
