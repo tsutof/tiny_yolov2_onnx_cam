@@ -1,6 +1,6 @@
 # Microservices Demo
 
-<img src="./dashboard.png" alt="Dashboard" title="Dashboard" width="640">
+<img src="./services.png" alt="Services" title="Services" width="640">
 
 ## Prerequisites
 
@@ -36,6 +36,7 @@ $ ./scripts/compose-up.sh
 
 ### Access to Dashboard
 You can access to the Node-RED dashboard at [http://localhost:1880/ui](http://localhost:1880/ui)
+<img src="./dashboard.png" alt="Dashboard" title="Dashboard" width="640">
 
 ### Stopping Sevices
 ```
