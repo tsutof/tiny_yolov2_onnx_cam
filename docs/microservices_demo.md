@@ -34,9 +34,24 @@ $ ./scripts/compose-down.sh
 The versions of docker-compose can be installed with apt install on L4T, don't support the **runtime** option, but you need the option support to run L4T based docker containers.
 Here is an example to install the recent versions of docker-compose which supports the runtime option.
 
-If you already have pip installed with apt in your Jetson. Remove it.
+1. If you already have pip installed with apt in your Jetson. Remove it.
 ```
 $ sudo apt remove python3-pip
+```
+1. Install pip from PyPA
+```
+$ sudo apt update
+$ sudo apt install curl python3-testresources
+$ curl -kL https://bootstrap.pypa.io/get-pip.py | python3
+```
+1. Install docker-compose
+```
+$ python3 -m pip install --user docker-compose
+```
+1. Add $HOME/.local/bin directory in your PATH.
+1. Comfirm docker-compose installed successfully.
+```
+docker-compose --version
 ```
 
 *[Return to README](../README.md)*
