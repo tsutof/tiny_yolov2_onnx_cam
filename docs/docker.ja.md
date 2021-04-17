@@ -53,4 +53,4 @@ optional arguments:
 # exit
 ```
 
-*[README.jaに戻る](../README.ja.md)*
+*[README.jaへ戻る](../README.ja.md)*
