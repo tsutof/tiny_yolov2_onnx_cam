@@ -31,7 +31,7 @@ $ sudo nvpmodel -m 0
 
 $ sudo jetson_clocks
 ```
-4. サービスを起動（CSIカメラを使用する場合は、このコマンドの実行前に、docker-compose.ymlファイルの変更が必要です。[この項目]() を参照）
+4. サービスを起動（CSIカメラを使用する場合は、このコマンドの実行前に、docker-compose.ymlファイルの変更が必要です。[この項目](#csi%E3%82%AB%E3%83%A1%E3%83%A9) を参照）
 ```
 $ ./scripts/compose-up.sh
 ```
