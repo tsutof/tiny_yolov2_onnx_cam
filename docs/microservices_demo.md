@@ -9,7 +9,7 @@ This demo uses Eclipse Mosquitto™ for the MQTT broker and uses Node-RED for th
 - NVIDIA Jetson Nano Developer Kit
 - USB Web Camera or Raspberry Pi Camera V2
 - NVIDIA JetPack **4.4 or later**
-- docker-compose with the **runtime** option support [see this section](#how-to-install-docker-compose-with-the-runtime-option-support)
+- docker-compose with the **runtime** option support [(see this section)](#how-to-install-docker-compose-with-the-runtime-option-support)
 
 ## Usage
 
