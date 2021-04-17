@@ -9,7 +9,7 @@
 - NVIDIA Jetson Nano開発者キット
 - USBウェブカメラ、または、Raspberry Pi Camera V2
 - NVIDIA JetPack **4.4 または、それ以降のバージョン**
-- **runtime** オプションがサポートされたdocker-compose
+- **runtime** オプションがサポートされたdocker-compose [（この項目を参照）]()
 
 ## 実行方法
 
