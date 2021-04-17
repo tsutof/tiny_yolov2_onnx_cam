@@ -8,6 +8,11 @@
 ## Table of Contents
 - [What Does This Application Do?](#what-does-this-application-do)
 - [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Docker Support](#docker-support)
+- [MQTT Support](#mqtt-support)
+- [Third Party License](#third-party-license)
 
 ## What Does This Application Do?
 
