@@ -1,8 +1,8 @@
-# �}�C�N���T�[�r�X�E�f��
+# マイクロサービス・デモ
 
 <img src="./services.png" alt="Services" title="Services" width="640">
 
-This demo uses Eclipse Mosquitto™ for the MQTT broker and uses Node-RED for the dashboard.
+本デモはEclipse Mosquitto™をMQTTブローカーとして利用、Node-REDをダッシュボードとして利用しています。
 
 ## Prerequisites
 
@@ -69,4 +69,4 @@ $ python3 -m pip install --user docker-compose
 docker-compose --version
 ```
 
-*[README.ja�֖߂�](../README.ja.md)*
+*[README.jaへ戻る](../README.ja.md)*
