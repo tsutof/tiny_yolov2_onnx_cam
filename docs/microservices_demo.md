@@ -1,5 +1,7 @@
 # Microservices Demo
 
+<img src="./dashboard.png" alt="Dashboard" title="Dashboard" width="640">
+
 ## Prerequisites
 
 - NVIDIA Jetson Nano Developer Kit
