@@ -5,6 +5,9 @@
 
 <img src="./screenshot.png" alt="Screenshot" title="Screenshot" width="640" height="360">
 
+## Table of Contents
+- [Prerequisites](#Prerequisites)
+
 ## What Does This Application Do?
 
 This application downloads the tiny YOLO v2 model from [Open Neural Network eXchange (ONNX) Model Zoo](https://github.com/onnx/models) and converts it to NVIDIA TensorRT plan, then starts the object detection for camera captured image. 
