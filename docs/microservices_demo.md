@@ -2,6 +2,8 @@
 
 <img src="./services.png" alt="Services" title="Services" width="640">
 
+This demo uses Eclipse Mosquitto™ for the MQTT broker and uses Node-RED for the dashboard.
+
 ## Prerequisites
 
 - NVIDIA Jetson Nano Developer Kit
