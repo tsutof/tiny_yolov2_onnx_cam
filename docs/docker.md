@@ -5,11 +5,11 @@
 1. Clone the repository if you don't have it yet.
 ```
 $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
-
-$ cd tiny_yolov2_onnx_cam
 ```
 2. Add execution permission to the scripts.
 ```
+$ cd tiny_yolov2_onnx_cam
+
 $ chmod +x ./scripts/*.sh
 ```
 3. Since this demo need much processor cycles, set the power model to the mode 0 and clock up.
