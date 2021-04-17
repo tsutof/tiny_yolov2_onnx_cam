@@ -49,7 +49,7 @@ optional arguments:
   --nmsth NMS_THRESH    Threshold of NMS algorithm (between 0 and 1)
 ```
 
-To exit from the docker container
+To exit from the Docker container
 ```
 # exit
 ```
