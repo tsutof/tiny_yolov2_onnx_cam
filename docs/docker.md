@@ -12,7 +12,7 @@ $ cd tiny_yolov2_onnx_cam
 
 $ chmod +x ./scripts/*.sh
 ```
-3. Since this demo need much processor cycles, set the power model to the mode 0 and clock up.
+3. Since this application need much processor cycles, set the power model to the mode 0 and clock up.
 ```
 $ sudo nvpmodel -m 0
 
