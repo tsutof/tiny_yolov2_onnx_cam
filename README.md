@@ -10,9 +10,9 @@
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Docker Support](#docker-support)
-- [MQTT Support](#mqtt-support)
-- [Microservices Demo](#microservices-demo)
+- [Docker Support](docs/docker.md)
+- [MQTT Support](docs/mqtt.md)
+- [Microservices Demo](docs/microservices_demo.md)
 - [Third Party License](#third-party-license)
 
 ## What Does This Application Do?
