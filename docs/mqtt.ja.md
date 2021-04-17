@@ -1,6 +1,6 @@
-# MQTTƒTƒ|[ƒgiŒ±“I‚ÈÀ‘•j
+# MQTTã‚µãƒãƒ¼ãƒˆï¼ˆè©¦é¨“çš„ãªå®Ÿè£…ï¼‰
 
-## —˜—p•û–@
+## åˆ©ç”¨æ–¹æ³•
 
 ```
 $ python3 tiny_yolov2_onnx_cam_mqtt.py [-h] [--camera CAMERA_NUM] [--csi]
@@ -24,9 +24,9 @@ optional arguments:
   --novout              No video output
 ```
 
-## ‘—Mƒf[ƒ^Œ`®
+## é€ä¿¡ãƒ‡ãƒ¼ã‚¿å½¢å¼
 
-ƒRƒ“ƒ}‹æØ‚èƒeƒLƒXƒgƒf[ƒ^
+ã‚³ãƒ³ãƒåŒºåˆ‡ã‚Šãƒ†ã‚­ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿
 
 1. Frame number
 1. Class
@@ -36,11 +36,11 @@ optional arguments:
 1. Bounding box x_max
 1. Bounding box y_max
 
-### —á
+### ä¾‹
 
 ```
 2312,tvmonitor,0.61,480,4,627,176
 2312,person,0.60,82,103,547,480
 ```
 
-*[README.ja‚É–ß‚é](../README.ja.md)*
+*[README.jaã¸æˆ»ã‚‹](../README.ja.md)*
