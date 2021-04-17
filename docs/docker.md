@@ -1,14 +1,29 @@
 # Docker Support
 
-## Building the Docker image
+## Building the Docker Image
 
+1. Clone the repository if you don't have it yet.
+```
+$ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
+
+$ cd tiny_yolov2_onnx_cam
+```
+2. Add execution permission to the scripts.
 ```
 $ chmod +x ./scripts/*.sh
+```
+3. Since this demo need much processor cycles, set the power model to the mode 0 and clock up.
+```
+$ sudo nvpmodel -m 0
 
+$ sudo jetson_clocks
+```
+4. Build the docker image.
+```
 $ ./scripts/docker_build.sh
 ```
 
-## Running a Docker container from the built image
+## Running a Docker Container from the Built Image
 
 ```
 $ ./scripts/docker_run.sh
