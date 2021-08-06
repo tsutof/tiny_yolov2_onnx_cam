@@ -26,10 +26,21 @@
 from __future__ import print_function
 
 from data_processing import PostprocessYOLO, load_label_categories
-from get_engine import get_engine
+#from get_engine import get_engine
 import cv2
 import numpy as np
 import tensorrt as trt
+
+TRT_VERSION = trt.__version__.split('.')
+print('TensorRT v{} detected.'.format(trt.__version__))
+TRT_MAJOR = int(TRT_VERSION[0])
+if TRT_MAJOR >= 8:
+    from get_engine import get_engine
+    print('Using the new version of get_engine')
+else:
+    from get_engine_prev import get_engine
+    print('Using the previous version of get_engine')
+
 import pycuda.driver as cuda
 import pycuda.autoinit
 import sys
