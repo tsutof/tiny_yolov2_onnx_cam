@@ -60,7 +60,8 @@ GST_STR_CSI = 'nvarguscamerasrc \
 WINDOW_NAME = 'Tiny YOLO v2'
 INPUT_RES = (416, 416)
 #MODEL_URL = 'https://onnxzoo.blob.core.windows.net/models/opset_8/tiny_yolov2/tiny_yolov2.tar.gz'
-MODEL_URL = 'https://github.com/onnx/models/raw/master/vision/object_detection_segmentation/tiny-yolov2/model/tinyyolov2-8.tar.gz'
+# MODEL_URL = 'https://github.com/onnx/models/raw/master/vision/object_detection_segmentation/tiny-yolov2/model/tinyyolov2-8.tar.gz'
+MODEL_URL = 'https://github.com/onnx/models/raw/main/vision/object_detection_segmentation/tiny-yolov2/model/tinyyolov2-8.tar.gz'
 LABEL_URL = 'https://raw.githubusercontent.com/pjreddie/darknet/master/data/voc.names'
 
 # Draw bounding boxes on the screen from the YOLO inference result
