@@ -31,27 +31,31 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
 1. 依存ライブラリをインストールします。
 
     ```
-    $ sudo apt update
-
-    $ sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
+    sudo apt update
+    ```
+    ```
+    sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
     ```
 
 1. 他の Python モジュールをインストールする前に、**Cython** モジュールをインストールします。これを行わないと次のステップで行う NumPy インストール時に **RuntimeError: Running cythonize failed!** エラーが発生する場合があります。
 
     ```
-    $ pip3 install --user cython
+    pip3 install --user cython
     ```
 
 1. 本アプリケーションと依存モジュールをインストールします。
 
     ```
-    $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
-
-    $ cd tiny_yolov2_onnx_cam
-
-    $ export PATH=$PATH:/usr/local/cuda/bin
-
-    $ python3 -m pip install -r requirements.txt
+    git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
+    ```
+    ```
+    cd tiny_yolov2_onnx_cam
+    ```
+    ```
+    export PATH=$PATH:/usr/local/cuda/bin
+    ```
+    ```
+    python3 -m pip install -r requirements.txt
     ```
 
 ## 実行方法
@@ -59,15 +63,17 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
 最初に Jetson のクロックアップを行います。これを行わないと、ビデオ・キャプチャー時に *select timeout* が発生します。
 
 ```
-$ sudo nvpmodel -m 0
-$ sudo jetson_clocks
+sudo nvpmodel -m 0
+```
+```
+sudo jetson_clocks
 ```
 
 本アプリケーションは以下のコマンドで実行します。
 終了するには ESC キーを押します。
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
+python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
                                [--width WIDTH] [--height HEIGHT]
                                [--objth OBJ_THRESH] [--nmsth NMS_THRESH]
 
@@ -85,13 +91,13 @@ optional arguments:
 Raspberry Pi camera v2 などの CSI カメラを利用する場合は **--csi** オプションを付けます。
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py --csi --camera 0
+python3 tiny_yolov2_onnx_cam.py --csi --camera 0
 ```
 
 USB ウェブカメラを利用する場合はそのデバイスナンバーを指定します。/dev/video0 と認識されているカメラは 0 を、/dev/video1 と認識されているカメラは 1 を指定します。
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py --camera 1
+python3 tiny_yolov2_onnx_cam.py --camera 1
 ```
 
 **お使いの USB ウェブカメラがこのアプリケーションのデフォルト解像度設定に対応しない場合は、--width と --height コマンドライン・オプションでキャプチャ解像度を変更してください。**

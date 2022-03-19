@@ -4,29 +4,28 @@
 
 1. Clone the repository if you don't have it yet.
 ```
-$ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
+git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
 ```
-2. Add execution permission to the scripts.
+2. Change the current directory to the cloned application directory.
 ```
-$ cd tiny_yolov2_onnx_cam
-
-$ chmod +x ./scripts/*.sh
+cd tiny_yolov2_onnx_cam
 ```
 3. Since this application need much processor cycles, set the power model to the mode 0 and clock up.
 ```
-$ sudo nvpmodel -m 0
-
-$ sudo jetson_clocks
+sudo nvpmodel -m 0
+```
+```
+sudo jetson_clocks
 ```
 4. Build the docker image.
 ```
-$ ./scripts/docker_build.sh
+./scripts/docker_build.sh
 ```
 
 ## Running a Docker Container from the Built Image
 
 ```
-$ ./scripts/docker_run.sh
+./scripts/docker_run.sh
 ```
 The **docker_run.sh** script is an example. Please change it as your need. The script assumes the **/dev/video0** camera device for the input.
 
@@ -34,7 +33,7 @@ The following command starts the application.
 Press ESC key to exit from the application.
 
 ```
-# python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
+python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
                                [--width WIDTH] [--height HEIGHT]
                                [--objth OBJ_THRESH] [--nmsth NMS_THRESH]
 
@@ -51,7 +50,7 @@ optional arguments:
 
 To exit from the Docker container
 ```
-# exit
+exit
 ```
 
 *[Return to README](../README.md)*

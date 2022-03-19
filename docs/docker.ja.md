@@ -4,36 +4,35 @@
 
 1. （もし、まだであったら）本リポジトリのクローン
 ```
-$ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
+git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
 ```
-2. シェルスクリプトファイルに実行権限を付与
+2. アプリケーションのディレクトリへ移動
 ```
-$ cd tiny_yolov2_onnx_cam
-
-$ chmod +x ./scripts/*.sh
+cd tiny_yolov2_onnx_cam
 ```
 3. Jetson Nanoの電力モードをモード0にして、クロックアップ
 ```
-$ sudo nvpmodel -m 0
-
-$ sudo jetson_clocks
+sudo nvpmodel -m 0
+```
+```
+sudo jetson_clocks
 ```
 4. Dockerイメージのビルド
 ```
-$ ./scripts/docker_build.sh
+./scripts/docker_build.sh
 ```
 
 ## ビルドしたDockerイメージからコンテナを起動
 
 ```
-$ ./scripts/docker_run.sh
+./scripts/docker_run.sh
 ```
 **docker_run.sh** は例として **/dev/video0** をカメラ入力としていますが、ご使用の環境に合わせて変更してください。
 
 コンテナ内のシェルから、以下のコマンドで本アプリケーションを起動できます。ESCキーでアプリケーションを終了します。
 
 ```
-# python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
+python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
                                [--width WIDTH] [--height HEIGHT]
                                [--objth OBJ_THRESH] [--nmsth NMS_THRESH]
 
@@ -50,7 +49,7 @@ optional arguments:
 
 **exit** で、コンテナからホストOSに戻ります。
 ```
-# exit
+exit
 ```
 
 *[README.jaへ戻る](../README.ja.md)*

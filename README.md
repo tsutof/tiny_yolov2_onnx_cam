@@ -30,27 +30,31 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
 1. Install dependent libraries.
 
     ```
-    $ sudo apt update
-
-    $ sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
+    sudo apt update
+    ```
+    ```
+    sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
     ```
   
 1. You might need to install **Cython** alone prior to the other python modules installation. Otherwise "*RuntimeError: Running cythonize failed!*" might happens at the numpy installation.
 
     ```
-    $ pip3 install --user cython
+    pip3 install --user cython
     ```
 
 1. Install this application and the dependent modules.
 
     ```
-    $ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
-
-    $ cd tiny_yolov2_onnx_cam
-
-    $ export PATH=$PATH:/usr/local/cuda/bin
-
-    $ python3 -m pip install -r requirements.txt
+    git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
+    ```
+    ```
+    cd tiny_yolov2_onnx_cam
+    ```
+    ```
+    export PATH=$PATH:/usr/local/cuda/bin
+    ```
+    ```
+    python3 -m pip install -r requirements.txt
     ```
 
 ## Usage
@@ -59,15 +63,17 @@ First, clock up your Jetson.
 Only the nvpmodel is not enough, the jetson_clocks command is also needed. Without the jetson_clocks, "select timeout" error happens at the frame capture.
 
 ```
-$ sudo nvpmodel -m 0
-$ sudo jetson_clocks
+sudo nvpmodel -m 0
+```
+```
+sudo jetson_clocks
 ```
 
 The following command starts this application.
 Press ESC key to exit from this application.
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
+python3 tiny_yolov2_onnx_cam.py [-h] [--camera CAMERA_NUM] [--csi]
                                [--width WIDTH] [--height HEIGHT]
                                [--objth OBJ_THRESH] [--nmsth NMS_THRESH]
 
@@ -85,13 +91,13 @@ optional arguments:
 For Raspberry Pi camera v2, set --csi option.
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py --csi --camera 0
+python3 tiny_yolov2_onnx_cam.py --csi --camera 0
 ```
 
 For USB Web camera, if you camera is detected as /dev/video1, use 1 as the camera number.
 
 ```
-$ python3 tiny_yolov2_onnx_cam.py --camera 1
+python3 tiny_yolov2_onnx_cam.py --camera 1
 ```
 
 **If your USB Web camera does not support this application's default capture resolution, please change it with the --widht and --height command-line options.**

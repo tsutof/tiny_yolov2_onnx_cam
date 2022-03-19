@@ -16,23 +16,25 @@ This demo uses Eclipse Mosquitto™ for the MQTT broker and uses Node-RED for th
 ### Starting Services
 1. Clone the repository if you don't have it yet.
 ```
-$ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
+git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
 ```
-2. Add execution permission to the scripts.
+2. Change the current directory to the cloned application directory.
 ```
-$ cd tiny_yolov2_onnx_cam
-
-$ chmod +x ./scripts/*.sh
+cd tiny_yolov2_onnx_cam
+```
+```
+chmod +x ./scripts/*.sh
 ```
 3. Since this demo need much processor cycles, set the power model to the mode 0 and clock up.
 ```
-$ sudo nvpmodel -m 0
-
-$ sudo jetson_clocks
+sudo nvpmodel -m 0
+```
+```
+sudo jetson_clocks
 ```
 4. Start the services. (For CSI camera, modify docker-compose.yml prior to executing this command. Refer to [this note](#csi-camera).)
 ```
-$ ./scripts/compose-up.sh
+./scripts/compose-up.sh
 ```
 **At the first launch, the docker image building takes about 30min.**
 
@@ -48,7 +50,7 @@ You can access to the Node-RED dashboard at [http://localhost:1880/ui](http://lo
 
 ### Stopping Sevices
 ```
-$ ./scripts/compose-down.sh
+./scripts/compose-down.sh
 ```
 
 ## How to Install docker-compose with the runtime Option Support
@@ -57,17 +59,21 @@ Here is an example to install the recent versions of docker-compose which suppor
 
 1. If you already have pip installed with apt in your Jetson. Remove it.
 ```
-$ sudo apt remove python3-pip
+sudo apt remove python3-pip
 ```
 2. Install pip from PyPA
 ```
-$ sudo apt update
-$ sudo apt install curl python3-testresources
-$ curl -kL https://bootstrap.pypa.io/get-pip.py | python3
+sudo apt update
+```
+```
+sudo apt install curl python3-testresources
+```
+```
+curl -kL https://bootstrap.pypa.io/pip/3.6/get-pip.py | python3
 ```
 3. Install docker-compose
 ```
-$ python3 -m pip install --user docker-compose
+python3 -m pip install --user docker-compose
 ```
 4. Add $HOME/.local/bin directory in your PATH.
 5. Comfirm docker-compose installed successfully.

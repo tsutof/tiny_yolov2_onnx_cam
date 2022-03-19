@@ -17,23 +17,22 @@
 ### サービスの起動
 1. （もし、まだであったら）本リポジトリのクローン
 ```
-$ git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
+git clone https://github.com/tsutof/tiny_yolov2_onnx_cam
 ```
-2. シェルスクリプトファイルに実行権限を付与
+2. アプリケーションのディレクトリへ移動
 ```
-$ cd tiny_yolov2_onnx_cam
-
-$ chmod +x ./scripts/*.sh
+cd tiny_yolov2_onnx_cam
 ```
 3. Jetson Nanoの電力モードをモード0にして、クロックアップ
 ```
-$ sudo nvpmodel -m 0
-
-$ sudo jetson_clocks
+sudo nvpmodel -m 0
+```
+```
+sudo jetson_clocks
 ```
 4. サービスを起動（Raspbery Pi Camera V2など、CSIカメラを使用する場合は、このコマンドの実行前に、docker-compose.ymlファイルの変更が必要です。[この項目](#csi%E3%82%AB%E3%83%A1%E3%83%A9) を参照）
 ```
-$ ./scripts/compose-up.sh
+./scripts/compose-up.sh
 ```
 **最初の起動時に、Dockerイメージのビルドに約30分を要します。**
 
@@ -49,7 +48,7 @@ command: python3 tiny_yolov2_onnx_cam_mqtt.py --topic tiny_yolov2_onnx_cam --nov
 
 ### サービスの停止（別のターミナルから）
 ```
-$ ./scripts/compose-down.sh
+./scripts/compose-down.sh
 ```
 
 ## runtimeオプションがサポートされたdocker-composeをインストールする方法
@@ -59,17 +58,21 @@ $ ./scripts/compose-down.sh
 
 1. apt installでインストールしたpipが存在すれば、それを削除
 ```
-$ sudo apt remove python3-pip
+sudo apt remove python3-pip
 ```
 2. PyPAからpipをインストール
 ```
-$ sudo apt update
-$ sudo apt install curl python3-testresources
-$ curl -kL https://bootstrap.pypa.io/get-pip.py | python3
+sudo apt update
+```
+```
+sudo apt install curl python3-testresources
+```
+```
+curl -kL https://bootstrap.pypa.io/pip/3.6/get-pip.py | python3
 ```
 3. docker-composeをインストール
 ```
-$ python3 -m pip install --user docker-compose
+python3 -m pip install --user docker-compose
 ```
 4. $HOME/.local/binをPATHに加える
 5. docker-composeがインストールされたことを確認

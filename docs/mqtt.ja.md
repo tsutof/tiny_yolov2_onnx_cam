@@ -3,7 +3,7 @@
 ## 利用方法
 
 ```
-$ python3 tiny_yolov2_onnx_cam_mqtt.py [-h] [--camera CAMERA_NUM] [--csi]
+python3 tiny_yolov2_onnx_cam_mqtt.py [-h] [--camera CAMERA_NUM] [--csi]
                                     [--width WIDTH] [--height HEIGHT]
                                     [--objth OBJ_THRESH] [--nmsth NMS_THRESH]
                                     [--host MQTT_HOST] [--topic MQTT_TOPIC]
