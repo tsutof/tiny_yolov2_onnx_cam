@@ -3,3 +3,5 @@ model.trt
 Model.onnx
 *.gz
 voc.names
+jetson-ota-public.asc
+nvidia-l4t-apt-source.list
