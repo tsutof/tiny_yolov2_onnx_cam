@@ -6,7 +6,8 @@ ARG BASE_IMAGE=nvcr.io/nvidia/l4t-base:r32.5.0
 FROM ${BASE_IMAGE}
 
 ARG REPOSITORY_NAME=tiny_yolov2_onnx_cam
-ARG MODEL_URL='https://github.com/onnx/models/raw/master/vision/object_detection_segmentation/tiny-yolov2/model/tinyyolov2-8.tar.gz'
+#ARG MODEL_URL='https://github.com/onnx/models/raw/master/vision/object_detection_segmentation/tiny-yolov2/model/tinyyolov2-8.tar.gz'
+ARG MODEL_URL='https://github.com/onnx/models/raw/main/vision/object_detection_segmentation/tiny-yolov2/model/tinyyolov2-8.tar.gz'
 ARG LABEL_URL='https://raw.githubusercontent.com/pjreddie/darknet/master/data/voc.names'
 
 ENV DEBIAN_FRONTEND=noninteractive
