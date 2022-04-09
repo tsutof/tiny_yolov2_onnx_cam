@@ -4,7 +4,7 @@ source scripts/l4t_version.sh
 
 BASE_IMAGE="nvcr.io/nvidia/l4t-base:r$L4T_VERSION"
 #BASE_DEVEL="nvcr.io/nvidian/nvidia-l4t-base:r$L4T_VERSION"
-BASE_DEVEL="nvcr.io/nvidia/nvidia-l4t-base:r$L4T_VERSION"
+BASE_DEVEL="nvcr.io/nvidia/l4t-base:r$L4T_VERSION"
 
 if [ $L4T_RELEASE -eq 32 ]; then
 	if [ $L4T_REVISION_MAJOR -eq 4 ]; then
@@ -19,7 +19,7 @@ if [ $L4T_RELEASE -eq 32 ]; then
 		elif [ $L4T_REVISION_MINOR -gt 2 ]; then
 			BASE_IMAGE=$BASE_DEVEL
 		fi
-	elif [ $L4T_REVISION_MAJOR -gt 6 ]; then
+	elif [ $L4T_REVISION_MAJOR -gt 7 ]; then
 		BASE_IMAGE=$BASE_DEVEL
 	fi
 fi
