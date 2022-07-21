@@ -37,10 +37,16 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
     sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
     ```
 
-1. 他の Python モジュールをインストールする前に、**Cython** モジュールをインストールします。これを行わないと次のステップで行う NumPy インストール時に **RuntimeError: Running cythonize failed!** エラーが発生する場合があります。
+1. いくつかの Python モジュールはインストール順序に制約があります。
 
     ```
-    pip3 install --user cython
+    pip3 install --user --upgrade setuptools wheel Cython
+    ```
+    ```
+    pip3 install --user numpy protobuf==3.16.0
+    ```
+    ```
+    pip3 install --user --no-deps "onnx>=1.6.0,<=1.11.0"
     ```
 
 1. 本アプリケーションと依存モジュールをインストールします。
@@ -55,7 +61,7 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
     export PATH=$PATH:/usr/local/cuda/bin
     ```
     ```
-    python3 -m pip install -r requirements.txt
+    python3 -m pip install --user -r requirements.txt
     ```
 
 ## 実行方法
