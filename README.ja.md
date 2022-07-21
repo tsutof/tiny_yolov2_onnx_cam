@@ -34,7 +34,7 @@ YOLO v2 モデルを [Open Neural Network eXchange (ONNX) Model Zoo](https://git
     sudo apt update
     ```
     ```
-    sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
+    sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake libcanberra-gtk-module libcanberra-gtk3-module
     ```
 
 1. いくつかの Python モジュールはインストール順序に制約があります。
