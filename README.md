@@ -36,10 +36,16 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
     sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
     ```
   
-1. You might need to install **Cython** alone prior to the other python modules installation. Otherwise "*RuntimeError: Running cythonize failed!*" might happens at the numpy installation.
+1. Some Python modules have restrictions on the installation order.
 
     ```
-    pip3 install --user cython
+    pip3 install --user --upgrade setuptools wheel Cython
+    ```
+    ```
+    pip3 install --user numpy protobuf==3.16.0
+    ```
+    ```
+    pip3 install --user --no-deps "onnx>=1.6.0,<=1.11.0"
     ```
 
 1. Install this application and the dependent modules.
@@ -54,7 +60,7 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
     export PATH=$PATH:/usr/local/cuda/bin
     ```
     ```
-    python3 -m pip install -r requirements.txt
+    python3 -m pip install --user -r requirements.txt
     ```
 
 ## Usage
