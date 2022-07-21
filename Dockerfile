@@ -37,12 +37,12 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install setuptools Cython wheel
-RUN pip3 install numpy
+RUN pip3 install numpy protobuf==3.16.0
+RUN pip3 install --no-deps "onnx>=1.6.0,<=1.11.0"
 RUN pip3 install \
         Pillow>=5.2.0 \
         wget>=3.2 \
         pycuda>=2017.1.1 \
-        onnx>=1.6.0 \
         paho-mqtt
 
 RUN mkdir /${REPOSITORY_NAME}
