@@ -33,7 +33,7 @@ This application downloads the tiny YOLO v2 model from [Open Neural Network eXch
     sudo apt update
     ```
     ```
-    sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake
+    sudo apt install python3-pip protobuf-compiler libprotoc-dev libjpeg-dev cmake libcanberra-gtk-module libcanberra-gtk3-module
     ```
   
 1. Some Python modules have restrictions on the installation order.
